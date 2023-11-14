@@ -23,9 +23,8 @@ public class MemberController {
 
     @PostMapping("/create")
     public ResponseEntity<Member> create(){
-        Member member = new Member();
-        member.setName("injun");
-        member.setEmail("123@gmail.com");
+        Member member = Member.builder().name("injun")
+                .email("123@gmail.com").build();
         return new ResponseEntity<Member>(memberService.save(member), HttpStatus.OK);
     }
 }
