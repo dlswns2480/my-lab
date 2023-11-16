@@ -15,7 +15,7 @@ public class SwaggerConfig {
     //    http://localhost:8080/swagger-ui/index.html#/
     @Bean
     public GroupedOpenApi chatOpenApi() {
-        String[] paths = {"/order/**", "/member/**", "/trainer/**", "/review/**", "/item/**"};
+        String[] paths = {"/order/**", "/member/**"};
 
         return GroupedOpenApi.builder()
                 .group("GYM-MANAGING API v1")
