@@ -8,13 +8,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.Objects;
 
 
 @Entity
 @Getter @Setter
 @NoArgsConstructor
-public class Member{
+public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
@@ -22,9 +21,6 @@ public class Member{
 
 
     private String name;
-
-    @Embedded
-    private Address address;
 
     private String email;
     private Integer postcode;
@@ -39,16 +35,4 @@ public class Member{
         this.email = email;
     }
 
-//    @Override
-//    public boolean equals(Object object) {
-//        if (this == object) return true;
-//        if (object == null || getClass() != object.getClass()) return false;
-//        Member member = (Member) object;
-//        return Objects.equals(id, member.id);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id);
-//    }
 }
