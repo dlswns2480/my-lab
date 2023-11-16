@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,16 +24,17 @@ public class Member {
     private String name;
 
     private String email;
-    private Integer postcode;
+    private int postcode;
 
     @JsonIgnore
     @OneToMany(mappedBy = "member")
-    private List<Order> order;
+    private List<Order> order = new ArrayList<>();
 
     @Builder
-    public Member(String name, String email){
+    public Member(String name, String email, int postcode){
         this.name = name;
         this.email = email;
+        this.postcode = postcode;
     }
 
 }

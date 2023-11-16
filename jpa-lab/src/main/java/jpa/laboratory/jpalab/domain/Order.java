@@ -28,6 +28,10 @@ public class Order {
     public Order(String productName){
         this.productName = productName;
     }
+    public void setMember(Member member){
+        this.member = member;
+        member.getOrder().add(this);
+    }
 
     @Override
     public boolean equals(Object object) {
