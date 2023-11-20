@@ -6,9 +6,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jpa.laboratory.jpalab.domain.Order;
+import jpa.laboratory.jpalab.dto.OrderResponse;
 import jpa.laboratory.jpalab.service.OrderService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,7 +50,7 @@ public class OrderController {
 
     })
     @GetMapping
-    public ResponseEntity<List<Order>> findAll(){
-        return new ResponseEntity<>(orderService.findAll(), HttpStatus.OK);
+    public ResponseEntity<Page<OrderResponse>> findAll(@PageableDefault(size = 1, sort = "id", direction = Sort.Direction.DESC) Pageable pageable){
+        return new ResponseEntity<>(orderService.findAll(pageable), HttpStatus.OK);
     }
 }
