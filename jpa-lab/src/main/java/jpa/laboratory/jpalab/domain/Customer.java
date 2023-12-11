@@ -13,6 +13,7 @@ public class Customer {
     @Id
     private Long id;
     private String firstName;
+    private String dummys;
     private String lastName;
 
 }
