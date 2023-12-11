@@ -14,6 +14,7 @@ public class Customer {
     private Long id;
     private String firstName;
     private String dummys;
+    private String test;
     private String lastName;
 
 }
