@@ -15,6 +15,6 @@ public class Customer {
     private String firstName;
     private String dummys;
     private String test;
-    private String lastName;
+    private String lastNames;
 
 }
