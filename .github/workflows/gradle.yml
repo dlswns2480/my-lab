@@ -36,5 +36,5 @@ jobs:
         arguments: build
     - name : Test build
       run : chmod +x ./gradlew
-      run : ./gradlew test
+            ./gradlew test
       working-directory: ./jpa-lab
