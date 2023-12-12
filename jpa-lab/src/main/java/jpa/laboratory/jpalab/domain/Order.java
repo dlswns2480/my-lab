@@ -11,7 +11,7 @@ import java.util.Objects;
 @Entity
 @NoArgsConstructor
 @Table(name = "orders")
-@Getter @Setter
+@Getter
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +20,8 @@ public class Order {
 
     private String productName;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "member_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
     private Member member;
 
     @Builder
@@ -31,6 +31,10 @@ public class Order {
     public void setMember(Member member){
         this.member = member;
         member.getOrder().add(this);
+    }
+    public void deleteMember(Member member){
+        member.getOrder().remove(this);
+        this.member = null;
     }
 
     @Override
