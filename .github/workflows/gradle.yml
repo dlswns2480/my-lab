@@ -35,5 +35,6 @@ jobs:
         gradle-version: 7.5.1
         arguments: build
     - name : Test build
+      run : chmod +x ./gradlew
       run : ./gradlew test
       working-directory: ./jpa-lab
