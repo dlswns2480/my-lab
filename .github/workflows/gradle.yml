@@ -36,3 +36,4 @@ jobs:
         arguments: build
     - name : Test build
       run : ./gradlew test
+      working-directory: ./jpa-lab
