@@ -34,7 +34,6 @@ public class OrphanRemovalTest {
         Member member = memberRepository.findById(1L).orElseThrow();
         //when
         memberRepository.delete(member);
-        Assertions.assertThat(member).isNull();
         entityManager.flush();
     }
 
