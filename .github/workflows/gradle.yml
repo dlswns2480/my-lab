@@ -20,6 +20,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    defaults:
+          run:
+            working-directory: ./jpa-lab
 
     steps:
     - uses: actions/checkout@v3
@@ -36,7 +39,6 @@ jobs:
         arguments: build
     - name : Test build
       run: |
-          cd ./jpa-lab
           chmod +x ./gradlew
           ./gradlew test
-      working-directory: ./jpa-lab
+      # working-directory: ./jpa-lab
