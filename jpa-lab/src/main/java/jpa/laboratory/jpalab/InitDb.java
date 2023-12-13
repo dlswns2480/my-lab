@@ -29,25 +29,33 @@ public class InitDb {
             Member memberA = Member.builder()
                     .name("injun")
                     .email("123@gmail.com")
-                    .postcode(123321)
                     .build();
-            memberRepository.save(memberA);
+            Member savedMemberA = memberRepository.save(memberA);
             Order orderA = Order.builder()
-                    .productName("itemA")
+                    .productName("itemA1")
                     .build();
             orderA.setMember(memberA);
-            orderRepository.save(orderA);
+            Order savedOrderA = orderRepository.save(orderA);
+            Order orderB = Order.builder()
+                .productName("itemA2")
+                .build();
+            orderB.setMember(memberA);
+            Order savedOrderB = orderRepository.save(orderB);
         }
         public void dbInit2() {
             Member memberB = Member.builder()
                     .name("hyun")
                     .email("456@gmail.com")
-                    .postcode(98765)
                     .build();
             memberRepository.save(memberB);
-            Order orderB = Order.builder()
-                    .productName("itemB")
+            Order orderA = Order.builder()
+                    .productName("itemB1")
                     .build();
+            orderA.setMember(memberB);
+            orderRepository.save(orderA);
+            Order orderB = Order.builder()
+                .productName("itemB2")
+                .build();
             orderB.setMember(memberB);
             orderRepository.save(orderB);
         }
