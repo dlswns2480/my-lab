@@ -1,5 +1,8 @@
 package jpa.laboratory.jpalab.domain;
 
+import static jakarta.persistence.CascadeType.*;
+import static jakarta.persistence.GenerationType.*;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,12 +23,12 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Member {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = AUTO)
     @Column(name = "member_id")
     private Long id;
     private String name;
     private String email;
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "member", cascade = ALL, orphanRemoval = true)
     private List<Order> order = new ArrayList<>();
 
     @Builder
