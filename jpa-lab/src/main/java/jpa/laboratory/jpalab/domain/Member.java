@@ -28,6 +28,7 @@ public class Member {
     private Long id;
     private String name;
     private String email;
+    private String postcode;
     @OneToMany(mappedBy = "member", cascade = ALL, orphanRemoval = true)
     private List<Order> order = new ArrayList<>();
 
