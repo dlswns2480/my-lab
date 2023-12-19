@@ -29,7 +29,6 @@ public class InitDb {
             Member memberA = Member.builder()
                     .name("injun")
                     .email("123@gmail.com")
-                    .postcode(123321)
                     .build();
             memberRepository.save(memberA);
             Order orderA = Order.builder()
@@ -42,7 +41,6 @@ public class InitDb {
             Member memberB = Member.builder()
                     .name("hyun")
                     .email("456@gmail.com")
-                    .postcode(98765)
                     .build();
             memberRepository.save(memberB);
             Order orderB = Order.builder()
