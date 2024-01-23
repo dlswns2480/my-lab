@@ -49,12 +49,14 @@ jobs:
 
       # gradle 권한 부여
       - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew
+        run: |
+              cd ./jpa-lab
+              chmod +x ./gradlew
         shell: bash
 
       # 빌드
       - name: Build with Gradle
-        run: cd jpa-lab 
+        run: cd ./jpa-lab 
             ./gradlew build
 
       # 테스트 결과 PR 코멘트에 등록
